@@ -19,6 +19,7 @@ const navItems = [
   { name: "홈", href: "/" },
   { name: "소개", href: "/about" },
   { name: "서비스", href: "/services" },
+  { name: "예제", href: "/examples" },
 ]
 
 // Header 컴포넌트
