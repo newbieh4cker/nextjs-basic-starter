@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Link from "next/link"
 import { BookOpen, FormInput, Layout, Code2, Database, Settings } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -20,36 +21,42 @@ const examples = [
     title: "컴포넌트 스케이스",
     description: "모든 UI 컴포넌트의 사용 예제와 다양한 상태를 확인할 수 있습니다.",
     tags: ["UI/UX", "인터랙티브"],
+    href: "/examples/components",
   },
   {
     icon: FormInput,
     title: "폼 예제",
     description: "React Hook Form과 Zod를 활용한 검증 및 상태 관리 예제입니다.",
     tags: ["검증", "상태관리"],
+    href: "/examples/forms",
   },
   {
     icon: Layout,
     title: "레이아웃 예제",
     description: "반응형 레이아웃과 다양한 디자인 패턴을 구현한 예제입니다.",
     tags: ["반응형", "레이아웃"],
+    href: "/examples/layouts",
   },
   {
     icon: Code2,
     title: "usehooks-ts 예제",
     description: "커스텀 훅과 유틸리티 함수 사용 예제를 확인할 수 있습니다.",
     tags: ["훅", "유틸리티"],
+    href: "/examples/hooks",
   },
   {
     icon: Database,
     title: "데이터 패칭",
     description: "API 통신, 에러 처리, 로딩 상태 관리 예제입니다.",
     tags: ["API", "비동기"],
+    href: "/examples/data-fetching",
   },
   {
     icon: Settings,
     title: "설정 및 최적화",
     description: "성능 최적화, SEO 설정, PWA 구성 등의 예제입니다.",
     tags: ["최적화", "SEO", "PWA"],
+    href: "/examples/settings",
   },
 ]
 
@@ -114,8 +121,10 @@ function ExamplesGridSection() {
                     </div>
 
                     {/* 버튼 */}
-                    <Button className="w-full" variant="outline">
-                      예제 보기
+                    <Button asChild className="w-full" variant="outline">
+                      <Link href={example.href}>
+                        예제 보기
+                      </Link>
                     </Button>
                   </div>
                 </CardContent>
