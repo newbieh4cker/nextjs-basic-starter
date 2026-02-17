@@ -20,15 +20,17 @@ fi
 # Discord Embed 메시지 전송
 curl -s -X POST "$WEBHOOK_URL" \
   -H "Content-Type: application/json" \
-  -d "{
-    \"embeds\": [{
-      \"title\": \"⚠️ Claude Code - 권한 요청\",
-      \"description\": \"**${TOOL}** 도구 사용 권한을 요청하고 있습니다.\\n승인 또는 거부를 선택해주세요.\",
-      \"color\": 16776960,
-      \"footer\": {
-        \"text\": \"Claude Code Notification\"
-      }
-    }]
-  }" > /dev/null
+  -d @- > /dev/null <<EOF
+{
+  "embeds": [{
+    "title": "⚠️ Claude Code - 권한 요청",
+    "description": "**${TOOL}** 도구 사용 권한을 요청하고 있습니다.\\n승인 또는 거부를 선택해주세요.",
+    "color": 16776960,
+    "footer": {
+      "text": "Claude Code Notification"
+    }
+  }]
+}
+EOF
 
 exit 0
