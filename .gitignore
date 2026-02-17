@@ -41,7 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 # claude code
-.claude/
-!.claude/CLAUDE.md
+.claude/agents/
+.claude/commands/
+.claude/settings.local.json
 .mcp.json
 .playwright-mcp/
