@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { useMounted } from "@/hooks/use-mounted"
 
 // useLocalStorage 커스텀 훅
 function useLocalStorage<T>(key: string, initialValue: T) {
@@ -141,6 +142,7 @@ export function HooksExample() {
 
 // 시계 컴포넌트
 function Clock() {
+  const mounted = useMounted()
   const [time, setTime] = useState(new Date())
 
   useEffect(() => {
@@ -150,6 +152,16 @@ function Clock() {
 
     return () => clearInterval(timer)
   }, [])
+
+  if (!mounted) {
+    return (
+      <div className="text-center">
+        <p className="text-3xl font-mono font-bold text-muted-foreground">
+          --:--:--
+        </p>
+      </div>
+    )
+  }
 
   return (
     <div className="text-center">
