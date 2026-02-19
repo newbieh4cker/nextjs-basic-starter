@@ -51,6 +51,13 @@ export function Header() {
 
             {/* 오른쪽 액션 영역 */}
             <div className="flex items-center space-x-2">
+              {/* 로그인 버튼 (데스크톱) */}
+              <Link href="/login" className="hidden md:block">
+                <Button variant="outline" size="sm">
+                  로그인
+                </Button>
+              </Link>
+
               {/* 다크모드 토글 */}
               <ThemeToggle />
 
@@ -78,6 +85,16 @@ export function Header() {
                         {item.name}
                       </Link>
                     ))}
+                    <Separator />
+                    <Link
+                      href="/login"
+                      className="block"
+                      onClick={() => setOpen(false)}
+                    >
+                      <Button variant="outline" className="w-full">
+                        로그인
+                      </Button>
+                    </Link>
                   </nav>
                 </SheetContent>
               </Sheet>
