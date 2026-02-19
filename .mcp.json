@@ -1,0 +1,44 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "env": {}
+    },
+    "sequential-thinking": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "shadcn": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "shadcn@latest",
+        "mcp"
+      ]
+    },
+    "supabase": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "mcp-remote",
+        "https://mcp.supabase.com/mcp"
+      ]
+    }
+  }
+}
